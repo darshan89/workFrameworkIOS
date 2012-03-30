@@ -17,18 +17,56 @@
 
 - (void)dealloc
 {
+    
+    [url release];
+    [queue release];
     [_window release];
     [_navigationController release];
     [super dealloc];
 }
+-(id)init
+{
+    self=[super init];
+    queue=[[NSOperationQueue alloc] init];
+    return self;
+}
+-(void)load:(id)sender
+{
+    AppDelegate *app=(AppDelegate *)sender;
+    if ([url isFileURL]) {
+        NSArray *changes=[ChangeTrackingChange loadchangesFromFile:[url path]];
+        [app performSelectorOnMainThread:@selector(loaded:) withObject:changes waitUntilDone:NO];
+    }
+}
+-(void)loaded:(id)changes
+{
+    viewController.changes=changes;
+    [viewController.tableView reloadData];
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    url=(NSURL *)[launchOptions valueForKey:UIApplicationLaunchOptionsURLKey];
+    if (NULL==url) {
+        NSBundle *thisBundle=[NSBundle bundleForClass:[self class]];
+        url=[NSURL fileURLWithPath:[thisBundle pathForResource:@"changes.docx" ofType:nil]];
+    }
+    
+    [url retain];
+    
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
 
-    MasterViewController *masterViewController = [[[MasterViewController alloc] initWithNibName:@"MasterViewController" bundle:nil] autorelease];
-    self.navigationController = [[[UINavigationController alloc] initWithRootViewController:masterViewController] autorelease];
+    viewController = [[[MasterViewController alloc] initWithNibName:@"MasterViewController" bundle:nil] autorelease];
+    self.navigationController = [[[UINavigationController alloc] initWithRootViewController:viewController] autorelease];
+    
+    NSInvocationOperation *operation=[[NSInvocationOperation alloc] initWithTarget:self selector:@selector(load:) object:self];
+ 
+    [queue addOperation:operation];
+    
+    [operation release];
+    
+    
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
     return YES;

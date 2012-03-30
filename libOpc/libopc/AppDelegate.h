@@ -7,11 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MasterViewController.h"
+#import "ChangeTrackingChange.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
+{
+    NSURL *url;
+    NSOperationQueue *queue;
+    MasterViewController *viewController;
+}
 
 @property (strong, nonatomic) UIWindow *window;
 
 @property (strong, nonatomic) UINavigationController *navigationController;
+
+-(void)load:(id)sender;
+-(void)loaded:(id)sender;
 
 @end

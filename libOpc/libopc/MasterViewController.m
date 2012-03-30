@@ -12,7 +12,7 @@
 
 @implementation MasterViewController
 
-@synthesize detailViewController = _detailViewController;
+@synthesize detailViewController = _detailViewController,changes;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -84,7 +84,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return 2 * [changes count];
 }
 
 // Customize the appearance of table view cells.
@@ -97,12 +97,38 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
+    
+    int i=[indexPath indexAtPosition:1];
+    ChangeTrackingChange *change=[changes objectAtIndex:i/2];
+    UILabel *label=[[[UILabel alloc] initWithFrame:cell.contentView.bounds] autorelease];
+    label.font=[UIFont systemFontOfSize:14.0];
+    label.textAlignment=UITextAlignmentLeft;
+    label.textColor=[UIColor blackColor];
+    label.backgroundColor=(i/2==0?[UIColor lightGrayColor]:[UIColor whiteColor]);
+    label.autoresizingMask=UIViewAutoresizingFlexibleHeight;
+    label.lineBreakMode=UILineBreakModeWordWrap;
+    label.numberOfLines=0;
+    label.text=(i/2==0?change.mode:change.par);
+    [cell.contentView addSubview:label];
 
     // Configure the cell.
-    cell.textLabel.text = NSLocalizedString(@"Detail", @"Detail");
+    //cell.textLabel.text = NSLocalizedString(@"Detail", @"Detail");
     return cell;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGSize bounds=CGSizeMake(tableView.bounds.size.width, CGFLOAT_MAX);
+    int i=[indexPath indexAtPosition:1];
+    ChangeTrackingChange *change=[changes objectAtIndex:i/2];
+    CGSize change_size=[change size];
+    if (change_size.width!=bounds.width) {
+        change_size=[(i/2==0?change.mode:change.par) sizeWithFont:[UIFont systemFontOfSize:14.0] constrainedToSize:bounds lineBreakMode:UILineBreakModeWordWrap];
+        [change setSize:change_size];
+        
+    }
+    return change_size.height;
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
