@@ -10,8 +10,8 @@
 
 @interface DetailViewController : UIViewController
 
-@property (strong, nonatomic) id detailItem;
+@property (nonatomic, retain) id detailItem;
 
-@property (strong, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+@property (nonatomic, retain) IBOutlet UILabel *detailDescriptionLabel;
 
 @end

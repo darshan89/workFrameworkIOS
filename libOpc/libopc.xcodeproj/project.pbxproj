@@ -220,7 +220,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = armv6;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -231,12 +231,21 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				HEADER_SEARCH_PATHS = "/Volumes/d/workFrameworkIOS/libOpc/libopc/libopc-sdk-ios-debug-gcc-armv6-0.0.3/include";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				OTHER_LDFLAGS = (
+					"/Volumes/d/workFrameworkIOS/libOpc/libopc/libopc-sdk-ios-debug-gcc-armv6-0.0.3/lib/libplib.a",
+					"/Volumes/d/workFrameworkIOS/libOpc/libopc/libopc-sdk-ios-debug-gcc-armv6-0.0.3/lib/libopc.a",
+					"/Volumes/d/workFrameworkIOS/libOpc/libopc/libopc-sdk-ios-debug-gcc-armv6-0.0.3/lib/libmce.a",
+					"/Volumes/d/workFrameworkIOS/libOpc/libopc/libopc-sdk-ios-debug-gcc-armv6-0.0.3/lib/libzlib.a",
+					"/Volumes/d/workFrameworkIOS/libOpc/libopc/libopc-sdk-ios-debug-gcc-armv6-0.0.3/lib/libxml.a",
+				);
 				SDKROOT = iphoneos;
+				VALID_ARCHS = "armv7 armv6";
 			};
 			name = Debug;
 		};
@@ -244,35 +253,52 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = armv6;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				HEADER_SEARCH_PATHS = "/Volumes/d/workFrameworkIOS/libOpc/libopc/libopc-sdk-ios-debug-gcc-armv6-0.0.3/include";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_LDFLAGS = (
+					"/Volumes/d/workFrameworkIOS/libOpc/libopc/libopc-sdk-ios-debug-gcc-armv6-0.0.3/lib/libplib.a",
+					"/Volumes/d/workFrameworkIOS/libOpc/libopc/libopc-sdk-ios-debug-gcc-armv6-0.0.3/lib/libopc.a",
+					"/Volumes/d/workFrameworkIOS/libOpc/libopc/libopc-sdk-ios-debug-gcc-armv6-0.0.3/lib/libmce.a",
+					"/Volumes/d/workFrameworkIOS/libOpc/libopc/libopc-sdk-ios-debug-gcc-armv6-0.0.3/lib/libzlib.a",
+					"/Volumes/d/workFrameworkIOS/libOpc/libopc/libopc-sdk-ios-debug-gcc-armv6-0.0.3/lib/libxml.a",
+				);
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "armv7 armv6";
 			};
 			name = Release;
 		};
 		966027151525B6A0009A53E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = armv6;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jayneel Patel (89F44PYPKM)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jayneel Patel (89F44PYPKM)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "libopc/libopc-Prefix.pch";
-				HEADER_SEARCH_PATHS = "/Volumes/d/workFrameworkIOS/libopc-sdk-darwin-debug-gcc-i386-0.0.2/include";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = "/Volumes/d/workFrameworkIOS/libOpc/libopc/libopc-sdk-ios-debug-gcc-armv6-0.0.3/include";
 				INFOPLIST_FILE = "libopc/libopc-Info.plist";
 				OTHER_LDFLAGS = (
-					"/Volumes/d/workFrameworkIOS/libopc-sdk-darwin-debug-gcc-i386-0.0.2/lib/libzlib.a",
-					"/Volumes/d/workFrameworkIOS/libopc-sdk-darwin-debug-gcc-i386-0.0.2/lib/libxml.a",
-					"/Volumes/d/workFrameworkIOS/libopc-sdk-darwin-debug-gcc-i386-0.0.2/lib/libopc.a",
-					"/Volumes/d/workFrameworkIOS/libopc-sdk-darwin-debug-gcc-i386-0.0.2/lib/libmce.a",
+					"/Volumes/d/workFrameworkIOS/libOpc/libopc/libopc-sdk-ios-debug-gcc-armv6-0.0.3/lib/libopc.a",
+					"/Volumes/d/workFrameworkIOS/libOpc/libopc/libopc-sdk-ios-debug-gcc-armv6-0.0.3/lib/libmce.a",
+					"/Volumes/d/workFrameworkIOS/libOpc/libopc/libopc-sdk-ios-debug-gcc-armv6-0.0.3/lib/libzlib.a",
+					"/Volumes/d/workFrameworkIOS/libOpc/libopc/libopc-sdk-ios-debug-gcc-armv6-0.0.3/lib/libxml.a",
+					"/Volumes/d/workFrameworkIOS/libOpc/libopc/libopc-sdk-ios-debug-gcc-armv6-0.0.3/lib/libplib.a",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "BE30CEB8-93FF-43D4-81AA-54B928863AC5";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "BE30CEB8-93FF-43D4-81AA-54B928863AC5";
+				SDKROOT = iphoneos5.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -280,17 +306,25 @@
 		966027161525B6A0009A53E7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = armv6;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jayneel Patel (89F44PYPKM)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jayneel Patel (89F44PYPKM)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "libopc/libopc-Prefix.pch";
-				HEADER_SEARCH_PATHS = "/Volumes/d/workFrameworkIOS/libopc-sdk-darwin-debug-gcc-i386-0.0.2/include";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = "/Volumes/d/workFrameworkIOS/libOpc/libopc/libopc-sdk-ios-debug-gcc-armv6-0.0.3/include";
 				INFOPLIST_FILE = "libopc/libopc-Info.plist";
 				OTHER_LDFLAGS = (
-					"/Volumes/d/workFrameworkIOS/libopc-sdk-darwin-debug-gcc-i386-0.0.2/lib/libzlib.a",
-					"/Volumes/d/workFrameworkIOS/libopc-sdk-darwin-debug-gcc-i386-0.0.2/lib/libxml.a",
-					"/Volumes/d/workFrameworkIOS/libopc-sdk-darwin-debug-gcc-i386-0.0.2/lib/libopc.a",
-					"/Volumes/d/workFrameworkIOS/libopc-sdk-darwin-debug-gcc-i386-0.0.2/lib/libmce.a",
+					"/Volumes/d/workFrameworkIOS/libOpc/libopc/libopc-sdk-ios-debug-gcc-armv6-0.0.3/lib/libopc.a",
+					"/Volumes/d/workFrameworkIOS/libOpc/libopc/libopc-sdk-ios-debug-gcc-armv6-0.0.3/lib/libmce.a",
+					"/Volumes/d/workFrameworkIOS/libOpc/libopc/libopc-sdk-ios-debug-gcc-armv6-0.0.3/lib/libzlib.a",
+					"/Volumes/d/workFrameworkIOS/libOpc/libopc/libopc-sdk-ios-debug-gcc-armv6-0.0.3/lib/libxml.a",
+					"/Volumes/d/workFrameworkIOS/libOpc/libopc/libopc-sdk-ios-debug-gcc-armv6-0.0.3/lib/libplib.a",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "BE30CEB8-93FF-43D4-81AA-54B928863AC5";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "BE30CEB8-93FF-43D4-81AA-54B928863AC5";
+				SDKROOT = iphoneos5.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

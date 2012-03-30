@@ -17,9 +17,9 @@
     MasterViewController *viewController;
 }
 
-@property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, retain) UIWindow *window;
 
-@property (strong, nonatomic) UINavigationController *navigationController;
+@property (nonatomic, retain) UINavigationController *navigationController;
 
 -(void)load:(id)sender;
 -(void)loaded:(id)sender;

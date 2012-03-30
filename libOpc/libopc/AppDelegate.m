@@ -34,7 +34,7 @@
 {
     AppDelegate *app=(AppDelegate *)sender;
     if ([url isFileURL]) {
-        NSArray *changes=[ChangeTrackingChange loadchangesFromFile:[url path]];
+        NSArray *changes=[ChangeTrackingChange loadChangesFromFile:[url path]];
         [app performSelectorOnMainThread:@selector(loaded:) withObject:changes waitUntilDone:NO];
     }
 }

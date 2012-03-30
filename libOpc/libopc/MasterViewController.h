@@ -16,6 +16,6 @@
     NSArray *changes;
 }
 
-@property (strong, nonatomic) DetailViewController *detailViewController;
+@property (nonatomic, retain) DetailViewController *detailViewController;
 @property (nonatomic,retain)NSArray *changes;
 @end
