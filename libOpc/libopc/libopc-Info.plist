@@ -36,7 +36,28 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>LSApplicationCategoryType</key>
-	<string></string>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>docx</string>
+				<string>docm</string>
+			</array>
+			<key>CFBundleTypeMIMETypes</key>
+			<array>
+				<string>application/vnd.openxmlformates-officedocument.wordprocessingml.document</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>microsoft word 2007-2008</string>
+			<key>LSHandlerRank</key>
+			<string>Default</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>org.openxmlformates.wordprocessingml.document</string>
+				<string>org.openxmlformates.wordprocessingml.document.macroenabled</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>

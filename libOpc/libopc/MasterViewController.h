@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ChangeTrackingChange.h"
 
 @class DetailViewController;
 
 @interface MasterViewController : UITableViewController
+{
+    NSArray *changes;
+}
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
-
+@property (nonatomic,retain)NSArray *changes;
 @end
