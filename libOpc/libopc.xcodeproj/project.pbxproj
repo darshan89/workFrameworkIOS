@@ -17,6 +17,8 @@
 		9660270B1525B69F009A53E7 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9660270A1525B69F009A53E7 /* DetailViewController.m */; };
 		9660270E1525B69F009A53E7 /* MasterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9660270C1525B69F009A53E7 /* MasterViewController.xib */; };
 		966027111525B6A0009A53E7 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9660270F1525B6A0009A53E7 /* DetailViewController.xib */; };
+		9660271D1525C394009A53E7 /* changes.docx in Resources */ = {isa = PBXBuildFile; fileRef = 9660271C1525C394009A53E7 /* changes.docx */; };
+		966027201525C73A009A53E7 /* ChangeTrackingChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 9660271F1525C73A009A53E7 /* ChangeTrackingChange.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,9 @@
 		9660270A1525B69F009A53E7 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		9660270D1525B69F009A53E7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MasterViewController.xib; sourceTree = "<group>"; };
 		966027101525B6A0009A53E7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DetailViewController.xib; sourceTree = "<group>"; };
+		9660271C1525C394009A53E7 /* changes.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = changes.docx; sourceTree = "<group>"; };
+		9660271E1525C73A009A53E7 /* ChangeTrackingChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeTrackingChange.h; sourceTree = "<group>"; };
+		9660271F1525C73A009A53E7 /* ChangeTrackingChange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeTrackingChange.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +87,8 @@
 		966026FA1525B69F009A53E7 /* libopc */ = {
 			isa = PBXGroup;
 			children = (
+				9660271E1525C73A009A53E7 /* ChangeTrackingChange.h */,
+				9660271F1525C73A009A53E7 /* ChangeTrackingChange.m */,
 				966027031525B69F009A53E7 /* AppDelegate.h */,
 				966027041525B69F009A53E7 /* AppDelegate.m */,
 				966027061525B69F009A53E7 /* MasterViewController.h */,
@@ -98,6 +105,7 @@
 		966026FB1525B69F009A53E7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9660271C1525C394009A53E7 /* changes.docx */,
 				966026FC1525B69F009A53E7 /* libopc-Info.plist */,
 				966026FD1525B69F009A53E7 /* InfoPlist.strings */,
 				966027001525B69F009A53E7 /* main.m */,
@@ -159,6 +167,7 @@
 				966026FF1525B69F009A53E7 /* InfoPlist.strings in Resources */,
 				9660270E1525B69F009A53E7 /* MasterViewController.xib in Resources */,
 				966027111525B6A0009A53E7 /* DetailViewController.xib in Resources */,
+				9660271D1525C394009A53E7 /* changes.docx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,6 +182,7 @@
 				966027051525B69F009A53E7 /* AppDelegate.m in Sources */,
 				966027081525B69F009A53E7 /* MasterViewController.m in Sources */,
 				9660270B1525B69F009A53E7 /* DetailViewController.m in Sources */,
+				966027201525C73A009A53E7 /* ChangeTrackingChange.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,7 +264,14 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "libopc/libopc-Prefix.pch";
+				HEADER_SEARCH_PATHS = "/Volumes/d/workFrameworkIOS/libopc-sdk-darwin-debug-gcc-i386-0.0.2/include";
 				INFOPLIST_FILE = "libopc/libopc-Info.plist";
+				OTHER_LDFLAGS = (
+					"/Volumes/d/workFrameworkIOS/libopc-sdk-darwin-debug-gcc-i386-0.0.2/lib/libzlib.a",
+					"/Volumes/d/workFrameworkIOS/libopc-sdk-darwin-debug-gcc-i386-0.0.2/lib/libxml.a",
+					"/Volumes/d/workFrameworkIOS/libopc-sdk-darwin-debug-gcc-i386-0.0.2/lib/libopc.a",
+					"/Volumes/d/workFrameworkIOS/libopc-sdk-darwin-debug-gcc-i386-0.0.2/lib/libmce.a",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -265,7 +282,14 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "libopc/libopc-Prefix.pch";
+				HEADER_SEARCH_PATHS = "/Volumes/d/workFrameworkIOS/libopc-sdk-darwin-debug-gcc-i386-0.0.2/include";
 				INFOPLIST_FILE = "libopc/libopc-Info.plist";
+				OTHER_LDFLAGS = (
+					"/Volumes/d/workFrameworkIOS/libopc-sdk-darwin-debug-gcc-i386-0.0.2/lib/libzlib.a",
+					"/Volumes/d/workFrameworkIOS/libopc-sdk-darwin-debug-gcc-i386-0.0.2/lib/libxml.a",
+					"/Volumes/d/workFrameworkIOS/libopc-sdk-darwin-debug-gcc-i386-0.0.2/lib/libopc.a",
+					"/Volumes/d/workFrameworkIOS/libopc-sdk-darwin-debug-gcc-i386-0.0.2/lib/libmce.a",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -290,6 +314,7 @@
 				966027161525B6A0009A53E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
